@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>guokuiliangfen </title>
+	<link rel="stylesheet" type="text/css" />
+	<style type="text/css">
+		#mainDiv{
+      	width:100%;
+      	height:100%;
+      	position:absolute;
+      	left:0px;
+      	top:0px;
+      	z-index:1;
+      	height:100%;
+      	overflow:hidden;
+      	background-image: url("res/guokuiliangfen3.jpg");
+      	background-size: cover;
+        }
+		.img1{
+			position: absolute;
+			right: 50px;
+			bottom: 100px;
+			}
+		figcaption{
+			font-size: 60px; 
+			color: #FFFFFF;
+			text-align: center;
+		}
+		ul, li { 
+			margin: 0; padding: 0;
+			list-style: none; 
+		}
+		ul {
+			padding: 5px;
+			width: 480px;
+			height: 480px;
+			margin:50px auto;
+			position: relative;
+			background:#3366cc;
+		}
+		li {
+        width: 150px;
+        height: 150px;
+        margin: 5px;
+        float: left;
+        overflow: hidden;
+        background:#ff6600;
+        cursor: move;
+        -webkit-user-select: none;
+        }
+        li img {
+        width: 150px;
+        height: 150px;
+        display: block;
+        border: none;
+        }
+        
+	</style>
+</head>
+<body>
+	<div id="mainDiv">
+		<figcaption>一起来拼图吧</figcaption>
+		<ul>
+			<li><img src="res/1.jpg"></li>
+			<li><img src="res/2.jpg"></li>
+			<li><img src="res/3.jpg"></li>
+			<li><img src="res/4.jpg"></li>
+			<li><img src="res/5.jpg"></li>
+			<li><img src="res/6.jpg"></li>
+			<li><img src="res/7.jpg"></li>
+			<li><img src="res/8.jpg"></li>
+			<li><img src="res/9.jpg"></li>
+		</ul>
+		<a href="nanchong.html"><img class="img1" src="res/1114.png" width="100px" height="100px" /></a>
+	</div>
+	<script src="js/event.js"></script>
+	<script src="js/drag_oop.js"></script>
+	<script src="js/tween.js"></script>
+	<script>
+		var oLis = document.getElementsByTagName("li");
+		for (var i = oLis.length - 1; i >= 0; i--) {
+			var oLi = oLis.item(i);
+			oLi.style.top = (oLi.t = oLi.offsetTop) + "px";
+			oLi.style.left = (oLi.l = oLi.offsetLeft) + "px";
+			oLi.style.position = "absolute";
+			oLi.style.margin = 0;
+			var obj = new Drag(oLi);
+			obj.border();
+			obj.on("dragstart", increaseIndex);
+			obj.on("dragend", goHome);      
+			obj.on("drag", getHited);
+			obj.on("dragend",changePosition);
+		}
+		var index = 0;
+		function increaseIndex() {
+			this.ele.style.zIndex = ++index;
+		}
+		function goHome() {
+			animate(this.ele, {left: this.ele.l, top: this.ele.t}, 400, 2);
+		}
+		function getHited() {
+			var ele = this.ele;
+			this.aHited = [];
+			for (var i = 0; i < oLis.length; i++) {
+				var oLi = oLis.item(i);
+				if (ele == oLi)continue;
+				oLi.style.background="";
+				if (test(ele, oLi)) {
+					oLi.style.background = "#ff6600";
+					this.aHited.push(oLi);
+				}
+			}
+		}
+		function test(r, b) {
+			if (r.offsetLeft + r.offsetWidth < b.offsetLeft || r.offsetTop + r.offsetHeight < b.offsetTop || r.offsetLeft > b.offsetLeft + b.offsetWidth || r.offsetTop > b.offsetTop + b.offsetHeight) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+		function changePosition(){
+			var a=this.aHited;
+			if(a){
+				for(var i=0;i< a.length;i++){
+					var oLi=a[i];
+					var ele=this.ele;
+					oLi.distance=Math.pow(oLi.offsetLeft-ele.offsetLeft,2)+Math.pow(oLi.offsetTop-ele.offsetTop,2);
+				}
+				a.sort(function(a,b){
+					return a.distance- b.distance;
+				});
+				a[0].style.background="#000000";
+				oLi=a[0];      
+				animate(oLi,{left:ele.l,top:ele.t},400,4);
+				animate(ele,{left:oLi.l,top:oLi.t},400,3);
+				var templ=ele.l;
+				var tempt=ele.t;
+				ele.l=oLi.l;
+				ele.t=oLi.t;
+				oLi.l=templ;
+				oLi.t=tempt;
+			}
+		}
+	</script>
+</body>
+</html>

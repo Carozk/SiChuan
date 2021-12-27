@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>dandanmian</title>
+    <meta charset="utf-8" />
+    	<link rel="stylesheet" type="text/css" href="css/dmaku.css" />
+    	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+    	<script type="text/javascript" src="js/dmaku.js"></script>
+    <style type="text/css">
+      #mainDiv{
+        width:100%;
+        height: 713px;
+        line-height: 15px;
+      	text-align:center;
+      	margin:0 auto;
+      	background-image: url("res/dandanmian1.jpg");
+      	background-repeat:no-repeat;
+      	background-size:cover;
+      	background-position: center center;
+      }
+      #zi1{
+      	width: 550px;
+      	background-color: rgba(250,235,255,0.5);
+      	padding: 5px;
+      	margin-left: 500px;
+      	width: 60%;
+      	color: black;
+      	font-size:18px;
+        line-height: 20px;
+      	text-align:left;
+      }
+      .img1{
+      	position: absolute;
+				right: 50px;
+				top: 550px;
+      }
+      p{
+      	color: #FFFFFF;
+        font-size:18px;
+        line-height: 15px;
+        text-indent:2em;
+      	text-align:left;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="mainDiv">
+    	<br />
+    	<h1>美食制作</h1>
+    	<div id="zi1">
+    		<p><b>所需食材</b></p>
+      <p><b>主料:</b>面条300g、猪肉馅200g、芽菜100g</p>
+      <p><b>辅料:</b>油、芝麻酱、芝麻、蒜碎、花椒粉、葱碎、花生碎、鸡精、辣椒面、香菜、醋、酱油、糖、盐</p>
+      <p><b>步骤</b></p>
+      <p>1.锅中注入油，爆香葱碎。</p>
+      <p>2.下入肉馅煸炒均匀。</p>
+      <p>3.烹入料酒，加入酱油、糖煸炒均匀。</p>
+      <p>4.下入芽菜继续翻炒均匀即成臊子。</p>
+      <p>5.把辣椒面和芝麻放入小碗中。</p>
+      <p>6.锅中注入有烧至6成热。</p>
+      <p>7.将热油浇在辣椒碗中，搅拌均匀即成油辣子。</p>
+      <p>8.酱油、糖、醋按10：5：1的比例调拌均匀。</p>
+      <p>9.把酱油倒入锅中，煮开即。倒出晾凉。</p>
+      <p>10.取一碗加入适量的芝麻酱、特制酱油、盐、鸡精、花椒粉、葱碎、蒜碎、油辣子成料汁。</p>
+      <p>11.锅中注入水，烧开下入面条煮熟</p>
+      <p>12.料碗中，加入一勺煮面的汤。把调料冲开。</p>
+      <p>13.将面条捞入汤碗中。</p>
+      <p>14.浇上肉末臊子，加入花生碎，用香菜点缀一下，一碗美味的担担面就完成啦。</p>
+    	</div>  
+	<canvas width="100%" height="100%" class="flake"></canvas>	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$("canvas.flake").let_it_snow({
+			windPower: -3,
+			speed: 1,
+			count: 5,
+			size: 50,
+			image: "res/dandanmiankt.png"
+		});
+
+	});
+	</script>
+      <a href="chengdu.html"><img class="img1" src="res/1114.png" width="100px" height="100px" /></a>
+    </div>
+    
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>qiaojiaoniurou</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      #mainDiv{
+        width:100%;
+        height: 700px;
+        line-height: 15px;
+      	text-align:center;
+      	margin: 0;
+		    background-image: url("res/qiaojiaoniurou1.jpg");
+	     	background-repeat:no-repeat;
+    		background-size:cover;
+    		background-position: center center;
+      }
+      #shipin{
+      	margin-top:10px;
+      	margin-right: 600px;
+      }
+      #zi{
+      	width: 800px;
+      	height: 250px;
+        line-height: 10px;
+      	text-align:left;
+      	margin-left: 600px;
+      	background-color: rgba(250,235,255,0.5);
+      }
+      p{
+        font-size:18px;
+        text-indent:2em;
+        line-height: 10px;
+      	text-align:left;
+      }
+      .img1{
+      	position: absolute;
+				left: 150px;
+				top: 50px;
+      }
+    </style>
+    <script type="text/javascript">
+      function hello1(){
+        document.getElementById("vo").play();
+      }
+      function hello2(){
+        document.getElementById("vo").pause();
+      }
+      function hello3(){
+        document.getElementById("vo").muted = !document.getElementById("vo").muted;
+      }
+    </script>
+  </head>
+  <body>
+    
+    <div id="mainDiv">
+    	<br />
+      <h2>美食制作</h2> 
+      <div id="zi">
+      	<p><b>步骤</b></p>
+      	<p>1.准备调料放在一起</p>
+      	<p>2.做成两个调料包待用 </p>
+      	<p>3.牛骨牛肉放热水焯一遍去脏，再加水烧开转小火，加入调料包炖煮大约50分钟。</p>
+      	<p>4.牛肚我放在高压锅中40分钟压熟～也可以跟骨头一起炖煮。</p>
+      	<p>5.压熟的牛肚放入炖煮骨头和肉的砂锅汤锅中。根据自己的口味加入盐，持续炖煮40分钟。</p>
+      	<p>6.出锅前2分钟加入牛百叶，白菜叶，稍微烫熟。出锅。</p>
+      	<p>7.将香油、小红绿辣椒切碎、蒜茸、盐、味精（根据需要加入蚝油）做成油碟蘸料。</p>
+      	<p>8.出锅后可以根据自己的口味加葱和香菜食用。</p>
+      </div>
+      <div id="shipin">
+      	<video id="vo" width="700" controls src="res/qiaojiaoniurou.mp4"></video><br />
+      	<input type="button" value="播放" onclick="hello1()" />
+      	<input type="button" value="暂停" onclick="hello2()" />
+      	<input type="button" value="静音" onclick="hello3()" />
+      	<a href="leshan.html"><img class="img1" src="res/1113.png" width="200px" height="150px" /></a>
+      </div>
+    </div>
+  </body>
+</html>

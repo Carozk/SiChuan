@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  	<script type="text/javascript" src="js/jquery.min.js" ></script>
+    <title>chuanbeiliangfen</title>
+    <meta charset="utf-8" />
+    <style type="text/css">
+      #mainDiv{
+      	width:100%;
+      	height:100%;
+      	position:absolute;
+      	left:0px;
+      	top:0px;
+      	z-index:1;
+      	height:100%;
+      	overflow:hidden;
+      	background-image: url("res/chuanbeiliangfen2.jpg");
+      	background-size: cover;
+      }
+      #page0{
+      	width:100%;
+      	height:100%;
+      	display:flex;
+      	align-items:center;
+      	justify-content:center;
+      	overflow:hidden;
+      }
+      #page0_1{
+      	width:40%;
+      	padding: 10px;
+      	text-indent:2em;
+      	font-size: 20px;
+      	line-height:25px;
+      	background-color: rgba(250,235,255,0.6);
+      }
+      #page0_2{
+      	width: 40%;
+      }
+      .view_div{
+        width:500px;
+        margin:0 auto;
+        position:relative;
+      	background-size:cover;
+      }
+      #vo{
+        width:500px;
+        height:400px;
+      }
+      #controls{
+        width:500px;
+        height:50px;
+        position:absolute;
+        left:0px;
+        bottom:5px;
+        background-color:rgba(0,0,0,0.5);
+        display:none;
+        justify-content:space-between;
+      }
+      .view_div:hover #controls{
+        display:flex;
+      }
+      .img1{
+      	position: absolute;
+      	right: 50px;
+      	top: 550px;
+      }
+    </style>
+    <script>
+    	var isPlay = true;
+      $(document).ready(function(){
+      	$("#playBtn").click(function(){
+      		if(isPlay){
+      			$("#vo").trigger('play');
+      			$("#playBtn").attr("src","res/1111.png");
+      			isPlay = false;
+      		}
+      		else{
+      			$("#vo").trigger('pause');
+      			$("#playBtn").attr("src","res/1112.png");
+      			isPlay = true;
+      		}
+      	});
+      	$("#mute").click(function(){
+      		var muted = $("video").prop("muted");
+    	  $("video").prop("muted",!muted);
+      	});
+      })
+    </script>
+  </head>
+  <body>
+    <div id="mainDiv">
+      <div id="page0" class="enter">
+        <div id="page0_1">
+        	<p><b>历史起源</b></p>
+        	<p>川北凉粉，原为农舍小食，距今已有90多年历史。川北凉粉自清末问世以来，以其独具红辣味醇、鲜香爽口的川味风格饮誉巴蜀，流传至今。当时，原南充县江村坝农民谢天禄，在中渡口搭棚卖担担凉粉，他的凉粉制作精细，从磨粉搅制到调料、配味都有独到之处，行人品尝后无不称道，谢凉粉便有了名气。其后，农民陈洪顺悉心研究谢凉粉制作工艺，取其所长并加以改进，凉粉制作工艺得到进一步完善。他选用新鲜白豌豆用小磨磨细，十分讲究搅制火候、所作凉粉质细柔嫩，筋力绵软，明而不透，细而不断，调料配味，更具匠心。不到一年，陈凉粉便名扬川北一带，“川北凉粉”也不胫而走。至今南充市和成渝等地的一些凉粉店都仍以“川北凉粉”为招牌，生意兴隆，火爆不衰。老一辈无产阶级革命家朱德、罗瑞卿生前回南充视察工作时，就曾特意品尝了川北凉粉。过去卖凉粉，多是挑着担儿卖，或在街边，或在十字路口，担儿一放，四面八方的顾客就来了。一般只卖成品凉粉，吃辣、吃酸，自己加佐料拌。要吃，也只有到大餐馆的筵席上品味儿了。</p>
+        </div>
+        <div id="page0_2">
+        	<div class="view_div">
+        		<video id="vo" src="res/chuanbeiliangfen.mp4" poster="res/chuanbeiliangfen1.png"></video>
+        		<div id="controls">
+        			<img id="playBtn" src="res/1112.png"  />
+        			<input id="mute" type="button" value="静音" />
+        		</div>
+        	</div>
+        </div>
+      </div>
+      <a href="nanchong.html"><img class="img1" src="res/1114.png" width="150px" height="150px" /></a>
+    </div>
+  </body>
+</html>

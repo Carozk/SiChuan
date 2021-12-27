@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>tihuatang</title>
+	<meta charset="UTF-8" />
+	<style type="text/css">    
+        #mainDiv{
+        width:100%;
+        height: 700px;
+	    }
+        #container {
+        	margin: auto;
+            position: relative;
+            width: 1500px;
+            height: 600px;
+            border: 3px solid #333;
+            overflow: hidden;
+        }
+        #list {
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+        #list img {
+            width: 100%;
+        }
+        .arrow {
+            display:block;
+            position: absolute;
+            top: 105px;
+            z-index: 2;
+            display: none;
+            width: 20px;
+            height: 40px;
+            font-size: 70px;
+            font-weight: bold;
+            line-height: 37px;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+        }
+        #container:hover .arrow {
+            display: block;
+        }
+        #prev {
+            color:#F5A9BC;
+            transform:rotate(90deg);
+            margin-left:660px;
+            margin-top:-120px;
+        }
+        #next {
+            color:#F5A9BC;
+            transform:rotate(90deg);
+            margin-left:660px;
+            margin-top:400px;
+        }
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js">	
+	</script>
+</head>
+<body>
+	<div id = "mainDiv">
+		<div id="container">
+			<div id="list" style="left:0px;">
+				<img src="res/thtzz1.jpg" height="700" />
+				<img src="res/thtzz2.jpg" height="700" />
+			</div>
+			<span id="prev" class="arrow" >《</span>
+			<span id="next" class="arrow" >》</span>
+		</div>
+		<script>
+			var isC = 1;
+			$(document).ready(function(){
+				$("#prev").click(function(){
+					if(isC == 1){
+						$("#list").attr("style","top:-700px");
+						isC++;
+					}
+					else{
+						$("#list").attr("style","top:0px");
+						isC = 1;
+					}
+				});
+				$("#next").click(function(){
+					if(isC == 1){
+						$("#list").attr("style","top:-700px");
+						isC++;
+					}
+					else{
+						$("#list").attr("style","top:0px");
+						isC = 1;
+					}
+				});
+			})
+		</script>
+		<a href="chengdu.html"><img class="img1" src="res/return.png" width="100px" height="100px" /></a>
+	</div>
+</body>
+</html>
+
